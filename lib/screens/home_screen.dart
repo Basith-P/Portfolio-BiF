@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_bif/screens/about_screen.dart';
+import 'package:portfolio_bif/screens/widgets/custom_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,6 +13,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
@@ -16,12 +21,13 @@ class HomeScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 30),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    'Hello, my',
-                    style: Theme.of(context).textTheme.headline1,
+                  Expanded(
+                    child: Text(
+                      'Hello, my',
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(2),
@@ -33,16 +39,28 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     child: const CircleAvatar(
-                      radius: 80,
+                      radius: 70,
                       backgroundImage: AssetImage('assets/images/1.png'),
                     ),
                   ),
+                  const SizedBox(width: 20),
                 ],
               ),
               Text(
                 'name\'s Basith\nI\'m a Developer',
                 style: Theme.of(context).textTheme.headline1,
               ),
+              const SizedBox(height: 30),
+              buildCustomCard('About', () => Navigator.pushNamed(context, AboutScreen.routName)),
+              buildCustomCard(
+                  'Languages', () => Navigator.pushNamed(context, AboutScreen.routName)),
+              buildCustomCard('Projects', () => Navigator.pushNamed(context, AboutScreen.routName)),
+              buildCustomCard(
+                  'Education', () => Navigator.pushNamed(context, AboutScreen.routName)),
+              buildCustomCard(
+                  'Experience', () => Navigator.pushNamed(context, AboutScreen.routName)),
+              buildCustomCard('Social', () => Navigator.pushNamed(context, AboutScreen.routName)),
+              buildCustomCard('Hobbies', () => Navigator.pushNamed(context, AboutScreen.routName)),
             ],
           ),
         ),
