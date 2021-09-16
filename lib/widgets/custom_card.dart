@@ -8,12 +8,13 @@ Widget buildCustomCard(BuildContext context, String title, List<Widget> children
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.black.withOpacity(.1),
-        //     blurRadius: 10,
-        //   )
-        // ],
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xff6d8dad).withOpacity(0.25),
+            blurRadius: 20,
+            offset: Offset.zero,
+          )
+        ],
       ),
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),

@@ -3,8 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import '/widgets/listTile_text.dart';
+import '../widgets/list_tile_text.dart';
 import '/widgets/custom_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -45,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                         backgroundImage: AssetImage('assets/images/1.png'),
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    const SizedBox(width: 5),
                   ],
                 ),
                 Text(
@@ -85,7 +86,10 @@ class HomeScreen extends StatelessWidget {
                   context,
                   'Social',
                   [
-                    ListTileText('GitHub'),
+                    InkWell(
+                      child: ListTileText('GitHub'),
+                      onTap: () => _launchURL('https://github.com/Basith-P'),
+                    ),
                     ListTileText('LinkedIn'),
                     ListTileText('Instagram'),
                     ListTileText('YouTube'),
@@ -99,3 +103,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+void _launchURL(String url) async =>
+    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Portfolio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: Colors.grey[50],
+        scaffoldBackgroundColor: Colors.white,
         textTheme: ThemeData.light().textTheme.copyWith(
               headline1: GoogleFonts.openSans(
                 color: Colors.grey[900],
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
