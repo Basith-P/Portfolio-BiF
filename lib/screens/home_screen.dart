@@ -90,9 +90,18 @@ class HomeScreen extends StatelessWidget {
                       child: ListTileText('GitHub'),
                       onTap: () => _launchURL('https://github.com/Basith-P'),
                     ),
-                    ListTileText('LinkedIn'),
-                    ListTileText('Instagram'),
-                    ListTileText('YouTube'),
+                    InkWell(
+                      child: ListTileText('LinkedIn'),
+                      onTap: () => _launchURL('https://www.linkedin.com/in/basithp9/'),
+                    ),
+                    InkWell(
+                      child: ListTileText('Instagram'),
+                      onTap: () => _launchURL('https://www.instagram.com/basith_nst/'),
+                    ),
+                    InkWell(
+                      child: ListTileText('YouTube'),
+                      onTap: () => _launchURL('https://www.youtube.com/c/B9STUDIOS'),
+                    ),
                   ],
                 ),
               ],
@@ -104,5 +113,5 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-void _launchURL(String url) async =>
+_launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
