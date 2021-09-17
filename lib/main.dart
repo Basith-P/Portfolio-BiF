@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: ThemeData.light().textTheme.copyWith(
               headline1: GoogleFonts.openSans(
-                color: Colors.grey[900],
+                color: Colors.grey[800],
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
                 height: 1.4,

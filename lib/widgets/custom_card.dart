@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget buildCustomCard(BuildContext context, String title, List<Widget> children) {
+Widget buildCustomCard(BuildContext context, IconData icon, String title, List<Widget> children) {
   return GestureDetector(
     child: Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
@@ -19,9 +19,18 @@ Widget buildCustomCard(BuildContext context, String title, List<Widget> children
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
-          title: Text(
-            title,
-            style: Theme.of(context).textTheme.headline3,
+          title: Row(
+            children: [
+              Icon(
+                icon,
+                color: Colors.grey[700],
+              ),
+              const SizedBox(width: 10),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.headline3,
+              ),
+            ],
           ),
           childrenPadding: const EdgeInsets.all(15).copyWith(top: 0),
           children: children,
